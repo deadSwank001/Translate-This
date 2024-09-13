@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Eight Ball</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #circle {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 20px;
+            background-color: #fff;
+            text-align: center;
+            min-width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Magic Eight Ball</h1>
+    <button onclick="displayAnswer()">Spin</button>
+    <div id="circle"></div>
+
+    <script>
+        function displayAnswer() {
+            let answers = [
+                'Seems unlikely.',
+                'I don\'t know, I\'m just a stupid piece of plastic.',
+                'Ask again later.',
+                'Is the Pope Catholic?',
+                'Does a one legged duck swim in a circle?',
+                'Investigate Bitcoin trends and updates.',
+                'Explore Ethereum\'s smart contract capabilities.',
+                'Learn about stablecoins and their use cases.',
+                'Check out Binance’s ecosystem and innovations.',
+                'Research Cardano\'s third - generation blockchain.',
+                'Look into Solana\'s speed and ecosystem.',
+                'Discover Ripple’s focus on cross-border payments.',
+                'Explore Polkadot’s interoperability features.',
+                'Learn about the community around Dogecoin.',
+                'Research the benefits of using USDC.',
+                'Listen to "Motion Sickness." song',
+                'Check out "The Less I Know The Better." song by Tame Impala',
+                'Sufjan Stevens - Explore "Fourth of July." song',
+                'Mitski - Enjoy "Nobody." song',
+                'Faye Webster - Try "Right Side of My Neck." song',
+                'Big Thief - Investigate "Masterpiece." song',
+                'The 1975 - Listen to "Somebody Else." song',
+                'Clairo - Check out "Bags." song',
+                'Alvvays - Explore "Archie, Marry Me." song',
+                'Mac DeMarco - Try "Chamber of Reflection." song',
+                'Listen to Joe Bartel on Soundcloud',
+                'Rock climbing at a local climbing gym.',
+                'Try surfing at a nearby beach or water body.',
+                'Longboard around your neighborhood or in a park.',
+                'Heavy lifting with compound movements like squats.',
+                'Cardio workout with HIIT exercises.',
+                'Go for a bike ride on a scenic trail.',
+                'Take a dance class for cardio and fun.',
+                'Try yoga or Pilates for flexibility.',
+                'Join a martial arts class.',
+                'Go for a hike in nature.',
+                'Mindful breathing exercises.',
+                'Guided meditation sessions via apps like Headspace.',
+                'Journaling your thoughts and reflections.',
+                'Walking meditation in nature.',
+                'Body scan meditation to promote relaxation.',
+                'Practicing gratitude daily.',
+                'Visualization techniques for stress relief.',
+                'Chanting or mantra repetition.',
+                'Art therapy through drawing or painting.',
+                'Cultivating awareness through mindfulness practices.',
+                'Eat a piece of fruit; you piece of **** <3',
+                '"The mind is everything. What you think you become." — Buddha',
+                '"Let go of attachments; let go of everything."',
+                '"You cannot travel the path until you have become the path itself." — Buddha',
+                '"The only way to live is by accepting each moment as an arrival." — Thich Nhat Hanh',
+                '"When you realize nothing is lacking, the whole world belongs to you." — Lao Tzu',
+                '"To be at one with the universe is to be at peace." — Zen Proverb',
+                '"Keep your face toward the sunshine, and the shadows will fall behind you." — Walt Whitman',
+                '"Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment." — Buddha',
+                '"Sitting quietly, doing nothing, spring comes, and the grass grows by itself." — Zen Proverb',
+                '"Enlightenment is when a wave realizes it is the ocean." — Thich Nhat Hanh',
+                'Study Spanish',
+                'Study French',
+                'Study Mandarin Chinese',
+                'Study German',
+                'Study Japanese',
+                'Study Russian',
+                'Study Arabic',
+                'Study Italian',
+                'Study Hindi',
+                'Study Portuguese',
+                'Study Python',
+                'Study JavaScript',
+                'Study Java',
+                'Study C++',
+                'Study Ruby',
+                'Study Go',
+                'Study Swift',
+                'Study PHP',
+                'Study Rust',
+                'Study TypeScript',
+                'Take Vitamin D for mood regulation.',
+                'Incorporate Omega-3 fatty acids for heart health.',
+                'Use Magnesium for muscle recovery and sleep.',
+                'Try Ashwagandha for stress relief.',
+                'Drink plenty of water for hydration.',
+                'Establish a consistent sleep schedule.',
+                'Limit screen time before bed.',
+                'Create a calming bedtime routine.',
+                'Include kale and spinach in your meals for greens.',
+                'Practice deep breathing before sleep.',
+                'Play video games <3',
+                'Boof something',
+                'Try a new recipe or cooking technique.',
+                'Visit a local museum or art gallery.',
+                'Attend a live music event or concert.',
+                'Explore your city through a walking tour.',
+                'Start a new book from a different genre.',
+                'Take up photography and practice taking portraits or landscapes.',
+                'Volunteer at a local charity or organization.',
+                'Experiment with writing a short story or poetry.',
+                'Join an online community around a hobby you love.',
+                'Try a new board game or card game with friends.',
+                'Make a vision board of your goals and aspirations.',
+                'Spend time gardening or caring for indoor plants.',
+                'Learn a new skill online via platforms like Udemy or Coursera.',
+                'Practice time management through Pomodoro techniques.',
+                'Take a trip to a place you\'ve never been before.',
+                'Connect with a friend you haven’t spoken to in a while.',
+                'Plan a themed movie or game night at home.',
+                'Start a DIY project or craft activity.',
+                'Create a budget and set savings goals.',
+                'Reflect on your day with a calming bedtime review.',
+                'Research the top biotech companies, such as Amgen, Gilead Sciences, and Biogen, and their recent innovations.',
+                'Explore the financials and future prospects of Regeneron Pharmaceuticals.',
+                'Investigate the impact of CRISPR technology by studying CRISPR Therapeutics.',
+                'Look into the advancements of Moderna, particularly in mRNA technology.',
+                'Analyze the growth potential of Illumina and its role in genomics.',
+                'Research the largest companies on Wall Street, beginning with Apple Inc. and its market influence.',
+                'Investigate Microsoft and its developments in cloud computing and software.',
+                'Look into Alphabet (Google) and its ventures in AI and data analytics.',
+                'Explore Amazon\'s business model and its impact on retail and logistics.',
+                'Study the operations and innovations of Tesla and its implications in the automotive sector.',
+                'Investigate NovaVax and Recursion and their recent investments in Machine Learning for biomedical practices.'
+            ];
+            let index = Math.floor(Math.random() * answers.length);
+            let answer = answers[index];
+            let element = document.getElementById('circle');
+            element.style.display = 'inline-block';
+            element.innerHTML = '<br><br>' + answer;
+        }
+    </script>
+</body>
+</html>
