@@ -3,29 +3,42 @@ Spoken language:
 
 i18next  (Internationalization Plugin for Next)
 https://www.i18next.com/
+
 For React: https://react.i18next.com/
 For NPM: https://www.npmjs.com/package/i18next
+
 FormatJS (New UI)
 https://formatjs.io/
+
 vue - i18n  (Internationalization Plugin for Vue)
 https://kazupon.github.io/vue-i18n/
+
 @angular/localize
 https://v17.angular.io/api/localize
+
 Globalize
 https://github.com/globalizejs/globalize
+
 Polyglot / Polyglot JS
 https://airbnb.io/polyglot.js/
+
 jQuery.i18n  (Internationalization Plugin for jQuery)
 https://github.com/wikimedia/jquery.i18n
+
 TiagoDanin/LocaleCodes
 https://github.com/TiagoDanin/Locale-Codes
+
 GNU.gettext API
 https://www.gnu.org/software/gettext/
+
 Python version of gettext: https://docs.python.org/3/library/gettext.html
+
 .intl  (international localization protocol [mozilla dev references] )
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+
 eoussama/translator.js
 https://github.com/eoussama/translator.js
+
 LinguiJS
 https://github.com/pemistahl/lingua-js
 
